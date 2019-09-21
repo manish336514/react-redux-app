@@ -3,6 +3,7 @@ import Footer from "./containers/Footer";
 import AddTodo from "./containers/AddTodo";
 
 import TodoList from "./containers/TodoList";
+
 // import VisibleTodoList from "../containers/VisibleTodoList";
 
 const App = () => (
