@@ -5,16 +5,19 @@ import Todo from "./Todo";
 
 import { connect } from "react-redux";
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, states }) => {
   console.log("todos new", todos);
-  return todos === {} ? (
+  return states === {} ? (
     <div>nn</div>
   ) : (
     <ul>
-      {todos.map(
-        todo => (
-          <Todo key={todo.id} {...todo} />
-        )
+      {states.map(
+        todo => {
+          console.log("todo8888888888888888888", todo.state);
+          return (
+            <Todo key={todo.id} {...todo} state={todo.state} name={todo.name} />
+          );
+        }
 
         //   todo.text
       )}
@@ -36,7 +39,8 @@ TodoList.propTypes = {
 const mapStateToProps = state => {
   console.log("todsos", state);
   return {
-    todos: state.todos
+    todos: state.todos,
+    states: state.states
   };
 };
 

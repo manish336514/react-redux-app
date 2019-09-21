@@ -2,13 +2,13 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-const Todo = ({ completed, text }) => (
+const Todo = ({ completed, text, state, name }) => (
   <li
     style={{
       textDecoration: completed ? "line-through" : "none"
     }}
   >
-    {text}
+    {name} =>{state}
   </li>
 );
 
