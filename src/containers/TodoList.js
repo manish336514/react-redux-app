@@ -36,7 +36,7 @@ TodoList.propTypes = {
 const mapStateToProps = state => {
   console.log("todsos", state);
   return {
-    todos: state
+    todos: state.todos
   };
 };
 
