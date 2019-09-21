@@ -1,5 +1,6 @@
 const todos = (state = [], action) => {
   console.log("action", action.type);
+
   console.log("action", state);
 
   {
