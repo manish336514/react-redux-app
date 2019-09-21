@@ -1,26 +1,16 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import Footer from "./containers/Footer";
+import AddTodo from "./containers/AddTodo";
+import TodoList from "./containers/TodoList";
+// import VisibleTodoList from "../containers/VisibleTodoList";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          New Application123445 <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <div>
+    <AddTodo />
+    {/* <VisibleTodoList /> */}
+    <TodoList />
+    <Footer />
+  </div>
+);
 
 export default App;
