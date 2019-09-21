@@ -12,12 +12,12 @@ const TodoList = ({ todos }) => {
   ) : (
     <ul>
       {todos.map(
-        todo =>
-          // <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
+        todo => (
+          <Todo key={todo.id} {...todo} />
+        )
 
-          todo
+        //   todo.text
       )}
-      mmm
     </ul>
   );
 };
