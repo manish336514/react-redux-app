@@ -2,6 +2,9 @@ import React from "react";
 
 import PropTypes from "prop-types";
 import Todo from "./Todo";
+import ThemeSwitcher from "./ThemeSwitcher";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap-theme.min.css";
 
 import { connect } from "react-redux";
 
@@ -10,18 +13,19 @@ const TodoList = ({ todos, states }) => {
   return states === {} ? (
     <div>nn</div>
   ) : (
-    <ul>
-      {states.map(
-        todo => {
-          console.log("todo8888888888888888888", todo.state);
-          return (
-            <Todo key={todo.id} {...todo} state={todo.state} name={todo.name} />
-          );
-        }
+    <div>
+      {/* <ThemeSwitcher /> */}
+      <ul>
+        {states.map(
+          todo => {
+            console.log("todo8888888888888888888", todo.state);
+            return <Todo st={todo.key} val={todo.val} />;
+          }
 
-        //   todo.text
-      )}
-    </ul>
+          //   todo.text
+        )}
+      </ul>
+    </div>
   );
 };
 

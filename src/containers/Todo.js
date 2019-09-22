@@ -2,18 +2,22 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-const Todo = ({ completed, text, state, name }) => (
-  <li
-    style={{
-      textDecoration: completed ? "line-through" : "none"
-    }}
-  >
-    {name} =>{state}
-  </li>
-);
+// const handlechenge = function() {
+//   // console.log("st", param);
+//   console.log("st");
+// };
 
+const Todo = ({ st, val }) => {
+  const handlechenge = (st, val) => {
+    console.log("The link was clicked.", st, val);
+  };
+  return (
+    <li onClick={() => handlechenge(st, val)}>
+      {st} =>{val}
+    </li>
+  );
+};
 Todo.propTypes = {
-  completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired
 };
 
