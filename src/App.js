@@ -3,16 +3,19 @@ import Footer from "./containers/Footer";
 import AddTodo from "./containers/AddTodo";
 
 import TodoList from "./containers/TodoList";
+import { Container } from "react-bootstrap";
+import SectionTop from "./components/SectionTop.js";
 
 // import VisibleTodoList from "../containers/VisibleTodoList";
 
 const App = () => (
-  <div>
+  <Container>
+    <SectionTop />
     <AddTodo />
     {/* <VisibleTodoList /> */}
     <TodoList />
     <Footer />
-  </div>
+  </Container>
 );
 
 export default App;
