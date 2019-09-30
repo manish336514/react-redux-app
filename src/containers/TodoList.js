@@ -2,23 +2,55 @@ import React from "react";
 
 import PropTypes from "prop-types";
 import Todo from "./Todo";
+import ThemeSwitcher from "./ThemeSwitcher";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap-theme.min.css";
+import { Button } from "react-bootstrap";
 
 import { connect } from "react-redux";
+import { getReportData } from "../redux/actions/index";
 
-const TodoList = ({ todos }) => {
-  console.log("todos new", todos);
-  return todos === {} ? (
+const TodoList = ({ todos, states, getPostReducer, handleClick }) => {
+  console.log("todos new********8***", todos);
+  console.log("states new************", states);
+
+  return states === {} ? (
     <div>nn</div>
   ) : (
-    <ul>
-      {todos.map(
-        todo => (
-          <Todo key={todo.id} {...todo} />
-        )
+    <div>
+      <Button
+        variant="primary"
+        onClick={() => {
+          handleClick("manish");
+        }}
+      >
+        Primary
+      </Button>
+      {/* <ThemeSwitcher /> */}
+      <ul>
+        {states.map(
+          todo => {
+            console.log("todo8888888888888888888", todo.state);
+            return <Todo st={todo.key} val={todo.val} />;
+          }
 
-        //   todo.text
-      )}
-    </ul>
+          //   todo.text
+        )}
+      </ul>
+      Manish
+      <ul>
+        {getPostReducer.map(
+          todo => (
+            <li>
+              {todo.id} =>{todo.title}
+            </li>
+          )
+
+          //   todo.text
+        )}
+      </ul>
+      <button>Get data </button>
+    </div>
   );
 };
 
@@ -36,8 +68,19 @@ TodoList.propTypes = {
 const mapStateToProps = state => {
   console.log("todsos", state);
   return {
-    todos: state.todos
+    todos: state.todos,
+    states: state.states,
+    getPostReducer: state.getPostReducer
   };
 };
 
-export default connect(mapStateToProps)(TodoList);
+const mapDispatchToProps = dispatch => ({
+  handleClick: abc => {
+    dispatch(getReportData(abc));
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList);
