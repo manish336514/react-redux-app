@@ -5,15 +5,27 @@ import Todo from "./Todo";
 import ThemeSwitcher from "./ThemeSwitcher";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap-theme.min.css";
+import { Button } from "react-bootstrap";
 
 import { connect } from "react-redux";
+import { getReportData } from "../redux/actions/index";
 
-const TodoList = ({ todos, states }) => {
-  console.log("todos new", todos);
+const TodoList = ({ todos, states, getPostReducer, handleClick }) => {
+  console.log("todos new********8***", todos);
+  console.log("states new************", states);
+
   return states === {} ? (
     <div>nn</div>
   ) : (
     <div>
+      <Button
+        variant="primary"
+        onClick={() => {
+          handleClick("manish");
+        }}
+      >
+        Primary
+      </Button>
       {/* <ThemeSwitcher /> */}
       <ul>
         {states.map(
@@ -25,6 +37,19 @@ const TodoList = ({ todos, states }) => {
           //   todo.text
         )}
       </ul>
+      Manish
+      <ul>
+        {getPostReducer.map(
+          todo => (
+            <li>
+              {todo.id} =>{todo.title}
+            </li>
+          )
+
+          //   todo.text
+        )}
+      </ul>
+      <button>Get data </button>
     </div>
   );
 };
@@ -44,8 +69,18 @@ const mapStateToProps = state => {
   console.log("todsos", state);
   return {
     todos: state.todos,
-    states: state.states
+    states: state.states,
+    getPostReducer: state.getPostReducer
   };
 };
 
-export default connect(mapStateToProps)(TodoList);
+const mapDispatchToProps = dispatch => ({
+  handleClick: abc => {
+    dispatch(getReportData(abc));
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList);

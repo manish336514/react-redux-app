@@ -3,9 +3,11 @@ import todos from "./todos";
 
 import visibilityFilter from "./visibilityFilter";
 import states from "./states";
+import getPostReducer from "./getPostReducer";
 
 export default combineReducers({
-  todos,
+  // todos,
   states,
-  visibilityFilter
+  // visibilityFilter,
+  getPostReducer
 });
