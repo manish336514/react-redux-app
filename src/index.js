@@ -9,6 +9,7 @@ import { createStore, applyMiddleware } from "redux";
 // import todos from "./redux/reducers/todos";
 import rootReducer from "./redux/reducers";
 import thunk from "redux-thunk";
+import Root from "./components/Root";
 
 // const store = createStore(todos);
 
@@ -23,9 +24,10 @@ import thunk from "redux-thunk";
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  // <Provider store={store}>
+  //   <App />
+  // </Provider>
+  <Root store={store} />,
   document.getElementById("root")
 );
 

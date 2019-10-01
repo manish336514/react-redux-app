@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Jumbotron, Button, Card, CardColumns } from "react-bootstrap";
 import { connect } from "react-redux";
+import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
 
 class SectionTop extends Component {
   render() {
@@ -19,7 +20,7 @@ class SectionTop extends Component {
         <CardColumns>
           {this.props.getCityReducer.map(city => {
             return (
-              <Card style={{ width: "30rem" }}>
+              <Card style={{ width: "36rem" }}>
                 <Card.Img variant="top" src={city.imageurl} />
                 <Card.Body>
                   <Card.Title>{city.val}</Card.Title>
@@ -27,7 +28,11 @@ class SectionTop extends Component {
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content.
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  <Link to="/citypage">
+                    <Button variant="primary">
+                      Clcik for More details on {city.val}
+                    </Button>
+                  </Link>
                 </Card.Body>
               </Card>
             );

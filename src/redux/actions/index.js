@@ -1,8 +1,8 @@
 import axios from "axios";
 export const FETCH_FLIGHT = "FETCH_FLIGHT";
 export const INCREMENT = "INCREMENT";
-
-let nextTodoId = 0;
+export const CITYDETAILS = "CITYDETAILS";
+export let nextTodoId = 0;
 
 export const addTodo = text => ({
   type: "ADD_TODO",
@@ -81,3 +81,17 @@ export const getReportData = reportId => async dispatch => {
     }
   });
 };
+
+// export const getReportData = reportId => async dispatch => {
+
+//   dispatch({
+//     type: CITYDETAILS,
+//     data: {
+//       post
+//     }
+//   });
+// };
+export const cityDetails = id => ({
+  type: "CITYDETAILS",
+  id
+});
