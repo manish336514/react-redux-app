@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Carousel } from "react-bootstrap";
+import Map from "./Map";
 
 class CityPage extends Component {
   render() {
@@ -49,7 +50,7 @@ class CityPage extends Component {
           </Carousel.Item>
         </Carousel>
         <h3>This is the Current city page</h3>
-
+        <Map />
         {this.props.getCityDetailsReducer.map(city => {
           return (
             <ul>
