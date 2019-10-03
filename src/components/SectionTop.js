@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Jumbotron, Button, Card, CardColumns } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
+import ImageTile from "../common/ImageTile";
 
 class SectionTop extends Component {
   render() {
@@ -17,6 +18,7 @@ class SectionTop extends Component {
             <Button variant="primary">Learn more</Button>
           </p>
         </Jumbotron>
+        <ImageTile />
         <CardColumns>
           {this.props.getCityReducer.map(city => {
             return (
