@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Blink from "./Blink";
+
 import "./imagetile.scss";
 // import { url } from "inspector";
 export default class ImageTile extends Component {
@@ -15,7 +17,10 @@ export default class ImageTile extends Component {
           <div className="overlay">
             <div className="title">{this.props.city.val}</div>
             <div className="rating">8 / 10</div>
-            <div className="plot">jdjesdjsdsdkjjsk</div>
+            <div className="plot">
+              {" "}
+              <Blink blinkdata={this.props.city.blinkdata} />
+            </div>
           </div>
         </div>
       </div>

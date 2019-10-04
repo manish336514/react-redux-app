@@ -325,7 +325,7 @@ p {
   flex: 1 0 auto;
   background-position: center;
   background-size: 100%;
-  height: 400px;
+  height: 350px;
   background-repeat: no-repeat;
   overflow: hidden;
   margin-right: 10px;
@@ -345,14 +345,14 @@ p {
     position: relative;
     height: 100%;
     pointer-events: none;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.125s ease;
     color: #ffffff;
 
     .title {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 200;
-      opacity: 0;
+      opacity: 1;
 
       transition: opacity 0.25s ease;
     }
@@ -366,16 +366,18 @@ p {
 
     .plot {
       $lines-to-show: 3;
-      font-size: 14px;
+      font-size: 18px;
+      font-family: monospace;
       display: -webkit-box;
-      margin-top: 100px;
+      margin-top: 245px;
       font-weight: 300;
       line-height: 1.6;
-      opacity: 0;
+      opacity: 1;
       -webkit-line-clamp: $lines-to-show;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-style: italic;
 
       transition: margin 0.25s ease 0.125s, opacity 0.25s ease 0.25s;
     }
