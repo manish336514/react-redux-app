@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Carousel } from "react-bootstrap";
+import Map from "./Map";
+import { Tabs, Tab } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Nav from "react-bootstrap/Nav";
+import "./citypage.css";
+import Sonnet from "./Sonnet";
+import CityPageContent from "../components/citypageconent/CityPageContent";
 
 class CityPage extends Component {
   render() {
     return (
-      <div>
+      <div className="citypage">
         <Carousel>
           <Carousel.Item>
             <img
@@ -49,7 +57,8 @@ class CityPage extends Component {
           </Carousel.Item>
         </Carousel>
         <h3>This is the Current city page</h3>
-
+        <CityPageContent />
+        <Map />
         {this.props.getCityDetailsReducer.map(city => {
           return (
             <ul>

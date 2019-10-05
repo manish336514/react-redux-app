@@ -2,38 +2,31 @@ import React, { Component } from "react";
 import { Jumbotron, Button, Card, CardColumns } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
+import ImageTile from "../common/ImageTile";
+
+import "./sectiontop.scss";
+
+class HeroButton extends Component {
+  render() {
+    return (
+      <a href="#" className="Button" data-primary={this.props.primary}>
+        {this.props.text.toUpperCase()}
+      </a>
+    );
+  }
+}
 
 class SectionTop extends Component {
   render() {
     return (
       <div>
-        <Jumbotron>
-          <h1>Hello, world!</h1>
-          <p>
-            This is a simple hero unit, a simple jumbotron-style component for
-            calling extra attention to featured content or information.
-          </p>
-          <p>
-            <Button variant="primary">Learn more</Button>
-          </p>
-        </Jumbotron>
-        <CardColumns>
+        <CardColumns style={{ margin: "86px" }}>
           {this.props.getCityReducer.map(city => {
             return (
-              <Card style={{ width: "36rem" }}>
-                <Card.Img variant="top" src={city.imageurl} />
-                <Card.Body>
-                  <Card.Title>{city.val}</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
-                  <Link to="/citypage">
-                    <Button variant="primary">
-                      Clcik for More details on {city.val}
-                    </Button>
-                  </Link>
-                </Card.Body>
+              <Card style={{ width: "37rem", backgroundColor: "dimgray" }}>
+                <Link to="/citypage">
+                  <ImageTile city={city} />
+                </Link>
               </Card>
             );
           })}
@@ -62,3 +55,15 @@ export default connect(
   mapStateToProps
   //   mapDispatchToProps
 )(SectionTop);
+
+// <Jumbotron style={{ backgroundColor: "dimgray" }}>
+//   <h1>Explore India</h1>
+// </Jumbotron>;
+
+// <Card.Body>
+// <Card.Title>{city.val}</Card.Title>
+// <Card.Text>Some quick example text</Card.Text>
+// {city.val}
+
+// <HeroButton primary={true} text={city.val} />
+// </Card.Body>

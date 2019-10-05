@@ -1,0 +1,42 @@
+// Fonts
+@import "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900";
+
+// Variables
+$font: "Lato", sans-serif;
+
+// Colors
+$red: #e50914;
+$black: #221f1f;
+$blackblack: #000000;
+$grey: #f5f5f1;
+$white: #ffffff;
+
+.Button {
+  width: 300px;
+  background: transparent;
+  display: flex;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: $white;
+  padding: 15px;
+  box-sizing: border-box;
+  border: 2px solid rgba($grey, 0.2);
+  border-radius: 44px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border 0.125s ease, background 0.125s ease;
+
+  &:hover {
+    border: 2px solid $grey;
+  }
+
+  &[data-primary="true"] {
+    border: 2px solid $red;
+
+    &:hover {
+      background: $red;
+    }
+  }
+}
