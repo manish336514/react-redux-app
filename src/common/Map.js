@@ -50,61 +50,40 @@ export default class Map extends Component {
   render() {
     // const { viewport } = this.state;
     return (
-      <ReactMapGL
-        mapboxApiAccessToken={
-          "pk.eyJ1IjoibWFuaXNha3R1IiwiYSI6ImNrMTdsYnN2azAwcW0zZG11cmh6MGVlMGYifQ.iq2Ounf_jDJFRaKtRi64dA"
-        }
-        {...this.state.viewport}
-        onViewportChange={viewport => this.setState({ viewport })}
-      >
-        <Marker
-          latitude={12.9716}
-          longitude={77.5946}
-          offsetLeft={-20}
-          offsetTop={-10}
-        >
-          <MenuIcon style={iconStyles} />
-        </Marker>
-        <Marker
-          latitude={13.1986}
-          longitude={77.7066}
-          offsetLeft={-20}
-          offsetTop={-10}
-        >
-          <LocalAirportIcon style={iconStyles} />
-        </Marker>
-
-        <Marker
-          latitude={12.9781}
-          longitude={77.5697}
-          offsetLeft={-20}
-          offsetTop={-10}
-        >
-          <DirectionsRailwayIcon style={iconStyles} />
-        </Marker>
-      </ReactMapGL>
-
-      // <MapGL
-      //   {...viewport}
+      // <ReactMapGL
+      //   mapboxApiAccessToken={
+      //     "pk.eyJ1IjoibWFuaXNha3R1IiwiYSI6ImNrMTdsYnN2azAwcW0zZG11cmh6MGVlMGYifQ.iq2Ounf_jDJFRaKtRi64dA"
+      //   }
+      //   {...this.state.viewport}
       //   onViewportChange={viewport => this.setState({ viewport })}
-      //   mapStyle="mapbox://styles/mapbox/streets-v10"
-      //   mapboxApiAccessToken="pk.eyJ1IjoibWFuaXNha3R1IiwiYSI6ImNrMTdsYnN2azAwcW0zZG11cmh6MGVlMGYifQ.iq2Ounf_jDJFRaKtRi64dA"
       // >
-      //   <div className="nav" style={navStyle}>
-      //     <NavigationControl
-      //       onViewportChange={viewport => this.setState({ viewport })}
-      //     />
-      //     {markerList.map((marker, index) => {
-      //       return (
-      //         <div key={index}>
-      //           <Marker longitude={marker.long} latitude={marker.lat}>
-      //             mansih
-      //           </Marker>
-      //         </div>
-      //       );
-      //     })}
-      //   </div>
-      // </MapGL>
+      //   <Marker
+      //     latitude={12.9716}
+      //     longitude={77.5946}
+      //     offsetLeft={-20}
+      //     offsetTop={-10}
+      //   >
+      //     <MenuIcon style={iconStyles} />
+      //   </Marker>
+      //   <Marker
+      //     latitude={13.1986}
+      //     longitude={77.7066}
+      //     offsetLeft={-20}
+      //     offsetTop={-10}
+      //   >
+      //     <LocalAirportIcon style={iconStyles} />
+      //   </Marker>
+
+      //   <Marker
+      //     latitude={12.9781}
+      //     longitude={77.5697}
+      //     offsetLeft={-20}
+      //     offsetTop={-10}
+      //   >
+      //     <DirectionsRailwayIcon style={iconStyles} />
+      //   </Marker>
+      // </ReactMapGL>
+      <div>Mapnn</div>
     );
   }
 }

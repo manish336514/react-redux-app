@@ -20,7 +20,7 @@ class SectionTop extends Component {
   render() {
     return (
       <div>
-        <CardColumns>
+        <CardColumns style={{ margin: "86px" }}>
           {this.props.getCityReducer.map(city => {
             return (
               <Card style={{ width: "37rem", backgroundColor: "dimgray" }}>

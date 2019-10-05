@@ -1,0 +1,31 @@
+.newcontainer {
+  display: flex; /* Standard syntax */
+  flex-direction: row;
+  width: 100%;
+}
+
+.newcontainer1 {
+  flex: 1;
+  background-color: red !important;
+  width: 30%;
+  font-size: 40px;
+}
+
+.newcontainer2 {
+  flex: 1;
+
+  background-color: red !important;
+  width: 30%;
+  font-size: 40px;
+}
+
+.sidenav-items {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 8px;
+}
+
+.sidenav-items:hover {
+  background-color: grey;
+}
