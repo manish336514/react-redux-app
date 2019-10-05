@@ -2,6 +2,7 @@ import axios from "axios";
 export const FETCH_FLIGHT = "FETCH_FLIGHT";
 export const INCREMENT = "INCREMENT";
 export const CITYDETAILS = "CITYDETAILS";
+export const SETNAV = "SETNAV";
 export let nextTodoId = 0;
 
 export const addTodo = text => ({
@@ -95,3 +96,11 @@ export const cityDetails = id => ({
   type: "CITYDETAILS",
   id
 });
+
+export const setCurrentSideNav = text => dispatch => {
+  console.log("In setnav text");
+  dispatch({
+    type: SETNAV,
+    text
+  });
+};

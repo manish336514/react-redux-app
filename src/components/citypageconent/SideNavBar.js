@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
+import { setCurrentSideNav } from "../../redux/actions/index";
 // import InboxIcon from "@material-ui/icons/MoveToInbox";
 // import List from "@material-ui/core/List";
 // import ListItem from "@material-ui/core/ListItem";
@@ -7,22 +8,25 @@ import React, { Component } from "react";
 // import ListItemText from "@material-ui/core/ListItemText";
 // import MailIcon from "@material-ui/icons/Mail";
 
-export default class componentName extends Component {
+class SideNavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   handleclick = (text, index) => {
     console.log("clicked side nav", text, index);
+    this.props.setCurrentSideNav(text);
   };
   render() {
     return (
       <div>
         {[
           "Places To Visit",
+          "Railswaystation",
+          "Busstation",
           "History",
           "Modern era",
-          "Aiport",
-          "Inbox",
-          "Starred",
-          "Send email",
-          "Drafts"
+          "Aiport"
         ].map((text, index) => (
           <div
             className="sidenav-items"
@@ -31,6 +35,7 @@ export default class componentName extends Component {
             {text}
           </div>
         ))}
+        {this.props.currenttab}
       </div>
     );
   }
@@ -46,3 +51,27 @@ export default class componentName extends Component {
 //   </ListItem>
 // ))}
 // </List>
+
+// const mapDispatchToProps = dispatch => ({
+//   setCurrentSideNav: () => dispatch(setCurrentSideNav)
+// });
+
+// export default connect(
+//   null,
+//   mapDispatchToProps
+// )(SideNavBar);
+const mapStateToProps = state => {
+  console.log("state", state);
+  return {
+    currenttab: state.getNavReducer.currenttab
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentSideNav: text => dispatch(setCurrentSideNav(text))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SideNavBar);
