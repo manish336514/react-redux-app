@@ -48,19 +48,23 @@ export default class TabRightContent extends Component {
             scrollButtons="auto"
             aria-label="scrollable auto tabs example"
           >
-            <Tab label="Item One" />
-            <Tab label="Item Two" />
-            <Tab label="Item Three" />
-            <Tab label="Item Four" />
-            <Tab label="Item Five" />
-            <Tab label="Item Six" />
-            <Tab label="Item Seven" />
+            {this.props.placedataRight.map(pdr => {
+              return <Tab label={pdr} />;
+            })}
           </Tabs>
         </AppBar>
         <TabPanel value={this.state.value} index={this.state.value}>
-          {this.state.value}{" "}
+          {this.props.placedataRight[this.state.value]}{" "}
         </TabPanel>
       </div>
     );
   }
 }
+
+// <Tab label="Item One" />
+// <Tab label="Item Two" />
+// <Tab label="Item Three" />
+// <Tab label="Item Four" />
+// <Tab label="Item Five" />
+// <Tab label="Item Six" />
+// <Tab label="Item Seven" />

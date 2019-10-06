@@ -7,7 +7,8 @@ class RightContent extends Component {
     super(props);
     this.state = {
       bodydata: "sdckdscjscjsj",
-      imageurl: "ALT"
+      imageurl: "ALT",
+      placedataRight: []
     };
   }
   componentDidMount() {
@@ -17,6 +18,7 @@ class RightContent extends Component {
       if (gcrd.majorplace == this.props.currenttab) {
         this.setState({ bodydata: gcrd.bodydata });
         this.setState({ imageurl: gcrd.imageurl });
+        this.setState({ placedataRight: gcrd.tabsdata });
       }
     });
   }
@@ -29,6 +31,7 @@ class RightContent extends Component {
       if (gcrd.majorplace == nextProps.currenttab) {
         this.setState({ bodydata: gcrd.bodydata });
         this.setState({ imageurl: gcrd.imageurl });
+        this.setState({ placedataRight: gcrd.tabsdata });
 
         console.log("componet will recive prop", gcrd.bodydata);
       }
@@ -37,7 +40,7 @@ class RightContent extends Component {
   render() {
     return (
       <div className="right-content-cotainer">
-        <TabRightContent />
+        <TabRightContent placedataRight={this.state.placedataRight} />
 
         <div>
           {this.props.currenttab}
