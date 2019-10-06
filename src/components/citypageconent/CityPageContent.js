@@ -16,7 +16,7 @@ export default class CityPageContent extends Component {
         </div>
         <div
           // classname="newcontainer2"
-          style={{ width: "80%", backgroundColor: "green" }}
+          style={{ width: "80%" }}
         >
           <RightContent />
         </div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import TabRightContent from "./TabRightContent";
 
 class RightContent extends Component {
   constructor(props) {
@@ -35,9 +36,13 @@ class RightContent extends Component {
   }
   render() {
     return (
-      <div>
-        {this.props.currenttab}||
-        {this.state.bodydata}
+      <div className="right-content-cotainer">
+        <TabRightContent />
+
+        <div>
+          {this.props.currenttab}
+          <h3> {this.state.bodydata}</h3>
+        </div>
         <img
           style={{ width: 600, height: 500 }}
           src={this.state.imageurl}

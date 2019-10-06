@@ -29,3 +29,8 @@
 .sidenav-items:hover {
   background-color: grey;
 }
+
+.right-content-cotainer {
+  justify-content: center;
+  border: 1px solid black;
+}

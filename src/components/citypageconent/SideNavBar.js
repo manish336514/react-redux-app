@@ -26,7 +26,10 @@ class SideNavBar extends Component {
           "Busstation",
           "History",
           "Modern era",
-          "Aiport"
+          "Aiport",
+          "Questions",
+          "Relevence",
+          "Quiz"
         ].map((text, index) => (
           <div
             className="sidenav-items"
