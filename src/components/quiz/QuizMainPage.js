@@ -4,6 +4,8 @@ import QuistionDetails from "./QuistionDetails";
 import QuestionsLIst from "./QuestionsLIst";
 import Quiz from "./Quiz";
 import "./quiz.css";
+import Counter from "./Counter";
+import Result from "./Result";
 
 export default class QuizMainPage extends Component {
   constructor(props) {
@@ -17,7 +19,8 @@ export default class QuizMainPage extends Component {
       allQuestions: [],
       answer: "",
       selectedAnswers: {},
-      result: true
+      result: "",
+      totalquestion: 0
     };
     this.setNextQuestion = this.setNextQuestion.bind(this);
     this.setPreviousQuestion = this.setPreviousQuestion.bind(this);
@@ -26,10 +29,13 @@ export default class QuizMainPage extends Component {
   }
   componentWillMount() {
     console.log("compwill", quizQuestions);
+    console.log("compwill length", quizQuestions.length);
+
     this.setState({
       question: quizQuestions[0].question,
       answerOptions: quizQuestions[0].answers,
-      allQuestions: quizQuestions
+      allQuestions: quizQuestions,
+      totalquestion: quizQuestions.length - 1
     });
   }
 
@@ -50,13 +56,13 @@ export default class QuizMainPage extends Component {
     _self.setState({ selectedAnswers: obj });
   }
 
-  componentWillMount() {
-    this.setState({
-      question: quizQuestions[0].question,
-      answerOptions: quizQuestions[0].answers,
-      allQuestions: quizQuestions
-    });
-  }
+  // componentWillMount() {
+  //   this.setState({
+  //     question: quizQuestions[0].question,
+  //     answerOptions: quizQuestions[0].answers,
+  //     allQuestions: quizQuestions
+  //   });
+  // }
 
   setNextQuestion() {
     const counter = this.state.counter + 1;
@@ -99,6 +105,18 @@ export default class QuizMainPage extends Component {
       this.setState({ result: "Undetermined" });
     }
   }
+  handlequestion = param => e => {
+    console.log("in handle question", param);
+    // this.setState({ counter: param });
+
+    this.setState({
+      counter: param,
+      questionId: param + 1,
+      question: quizQuestions[param].question,
+      answerOptions: quizQuestions[param].answers,
+      answer: ""
+    });
+  };
 
   renderQuiz() {
     return (
@@ -115,24 +133,60 @@ export default class QuizMainPage extends Component {
           question={this.state.question}
           questionTotal={quizQuestions.length}
           onAnswerSelected={this.handleAnswerSelected}
+          totalquestion={this.state.totalquestion}
         />
       </div>
     );
   }
   viewreults(e) {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log("View Result");
     this.setState({ result: true });
   }
 
   renderResult() {
-    return <div>renderResult</div>;
+    return (
+      <div>
+        <Result
+          quizResult={this.state.allQuestions}
+          answers={this.state.selectedAnswers}
+        />
+      </div>
+    );
   }
+
+  renderRQuestionNo() {
+    console.log("compwill length", quizQuestions.length);
+    var totalquestions = quizQuestions.length;
+    return (
+      <div>
+        <div>
+          {Array.from(Array(totalquestions), (e, i) => {
+            return (
+              <div
+                onClick={this.handlequestion(i)}
+                className={
+                  this.state.counter == i ? "button toggled" : "button"
+                }
+                key={i}
+              >
+                {i + 1}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="quizmainpage">
+        <Counter val={50} viewreults={this.viewreults} />
         Quiz {console.log("state", this.state.allQuestions)}
         <h2>Quiz Assignment :</h2>
-        {this.state.result ? this.renderQuiz() : this.renderResult()}
+        {this.renderRQuestionNo()}
+        {this.state.result ? this.renderResult() : this.renderQuiz()}
       </div>
     );
   }

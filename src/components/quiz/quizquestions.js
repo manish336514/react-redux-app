@@ -129,6 +129,32 @@ var quizQuestions = [
         answer: false
       }
     ]
+  },
+  {
+    question: "last question",
+    answerindex: 1,
+    answers: [
+      {
+        type: "IBM",
+        content: "Halo",
+        answer: false
+      },
+      {
+        type: "amdocs",
+        content: "Pokemon",
+        answer: false
+      },
+      {
+        type: "Sony2",
+        content: "Uncharted1",
+        answer: false
+      },
+      {
+        type: "Sony1",
+        content: "Uncharted2",
+        answer: false
+      }
+    ]
   }
 ];
 

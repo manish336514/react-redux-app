@@ -44,7 +44,7 @@ function Quiz(props) {
           <div></div>
         )}
 
-        {props.counter < 4 ? (
+        {props.counter < props.totalquestion ? (
           <button className="next-btn" onClick={props.setNextQuestion}>
             Next
           </button>

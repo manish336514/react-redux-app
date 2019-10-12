@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setCurrentSideNav } from "../../redux/actions/index";
+import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
+
 // import InboxIcon from "@material-ui/icons/MoveToInbox";
 // import List from "@material-ui/core/List";
 // import ListItem from "@material-ui/core/ListItem";
@@ -31,14 +33,27 @@ class SideNavBar extends Component {
           "Relevence",
           "Quiz",
           "Root Plan"
-        ].map((text, index) => (
-          <div
-            className="sidenav-items"
-            onClick={() => this.handleclick(text, index)}
-          >
-            {text}
-          </div>
-        ))}
+        ].map((text, index) =>
+          text == "Quiz" ? (
+            <div>
+              <div
+                className="sidenav-items"
+                onClick={() => this.handleclick(text, index)}
+              >
+                <Link to="/quiz">
+                  <div>{text}</div>
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div
+              className="sidenav-items"
+              onClick={() => this.handleclick(text, index)}
+            >
+              {text}
+            </div>
+          )
+        )}
         {this.props.currenttab}
       </div>
     );
